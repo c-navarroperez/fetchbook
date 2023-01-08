@@ -21,11 +21,9 @@ function toCorrectCase(str) {
 //parseBooksArray function, after being given an array of data it for loops through it to scrape relevant data and then uses the data to insert to DOM.
 function parseBooksArray(arr) {
   main.innerHTML = "";
-  //below classlist included for testing purposes
-  nytSection.classList.add("hide");
   for (let i = 0; i < 10; i++) {
     let title = arr[i].volumeInfo.title;
-    let author = arr[i].volumeInfo.authors.join(", ") || "No author found";
+    let author = arr[i].volumeInfo.authors?.join(", ") || "Author not found";
     let publishDate =
       arr[i].volumeInfo.publishedDate?.slice(0, 4) || "No publish date found";
     let isbn;
@@ -52,14 +50,24 @@ function parseBooksArray(arr) {
 //bookSearch function, searches for book in openLibrary api using given book title
 function bookSearch(title) {
   search.value = "";
+  nytSection.classList.add("hide");
   fetch(`https://www.googleapis.com/books/v1/volumes?q=title:${title}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.totalItems === 0) {
+        main.innerHTML = "";
+
         throw new Error("No results found, please try searching again");
       }
       let dataArray = data.items.slice();
       parseBooksArray(dataArray);
+    })
+    .catch((err) => {
+      main.insertAdjacentHTML(
+        "beforeend",
+        `<div class="bookCard item"><h3>${err}</h3>`
+      );
+      console.log(err);
     });
 }
 
