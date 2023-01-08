@@ -18,8 +18,8 @@ function toCorrectCase(str) {
 }
 
 //Google API version
-//parseBooksArray function, after being given an array of data it for loops through it to scrape relevant data and then uses the data to insert to DOM.
-function parseBooksArray(arr) {
+//parseBooks function, after being given an array of data it for loops through it to scrape relevant data and then uses the data to insert to DOM.
+function parseBooks(arr) {
   main.innerHTML = "";
   for (let i = 0; i < 10; i++) {
     let title = arr[i].volumeInfo.title;
@@ -60,7 +60,7 @@ function bookSearch(title) {
         throw new Error("No results found, please try searching again");
       }
       let dataArray = data.items.slice();
-      parseBooksArray(dataArray);
+      parseBooks(dataArray);
     })
     .catch((err) => {
       main.insertAdjacentHTML(
@@ -118,3 +118,6 @@ searchBtn.addEventListener("click", function (e) {
 
 //bestSellers called on page load to load/fetch NYT section
 bestSellers();
+
+//short summary on code
+//On page load, bestSellers function is called which fetches nyt API and creates HTML elements from them. Then once a book is searched for the bookSearch function is called. The search data is then used to fetch API data which is then passed into the parseBooks function. This then for loops (for limit set to 10) through information and and inserts HTML from it.
