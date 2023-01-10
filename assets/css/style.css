@@ -18,6 +18,7 @@ html, body {
 
 body {
     font-family: sans-serif;
+    margin:0% ;
 }
 
 /* GLOBAL CLASSES*/
@@ -32,17 +33,22 @@ body {
     margin: 8px 8px;
 }
 
-
 /* CUSTOM STYLES*/
 header {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
-}
+    padding: 1px 0;
+    margin: 0%;
+   }
 
 header h1 {
     padding: 16px;
     font-size: 48px;
     font-weight: 650;
+}
+
+.logo {
+    width:200px;
 }
 
 .container {
