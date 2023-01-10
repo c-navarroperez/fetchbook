@@ -69,6 +69,55 @@ aside {
     margin: 8px 0px;
 }
 
+/* SS - my formating for form section on splash page */
+
+/* SS - need to re-add appropriate selector
+    /* display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+} */
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px 50px;
+}
+
+#fetchbook-search-title {
+    align-items: center;
+    align-content: center;
+    background-color: aqua;
+}
+
+.form-group {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* .fetchbook-search {
+    width: 500;
+} */
+
+input[type=text] {
+    width: 100%;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+  }
+
+  /* SS - my formating for form section on splash page */
+
 .search-input, .search-button {
     margin: 8px 0px;
     padding: 8px 15px;
@@ -110,3 +159,4 @@ footer {
     background: var(--primary-color);
     color: var(--text-color);
 }
+
