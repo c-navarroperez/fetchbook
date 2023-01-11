@@ -14,7 +14,6 @@
 
 html, body {
     height: 100%;
-    width: 100%;
 }
 
 body {
@@ -53,38 +52,23 @@ header h1 {
 
 }
 
-.search {
+.search-group{
     justify-self: left;
-    width: 350px;
+    display: grid;
+    grid-template-rows: 100px 5rem auto;
+    
     margin-right: 20px; 
     padding: 16px 0px;
     border-right: 1px solid grey;
+
 }
 
 .search-form {
     display: flex;
     justify-content : center;
-    margin: 8px 0px;
-}
-
-/* SS - my formating for form section on splash page */
-
-/* SS - need to re-add appropriate selector
-    /* display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
-} */
-
-.search-form {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 50px 50px;
-}
-
-#fetchbook-search-title {
-    align-items: center;
-    align-content: center;
-    background-color: aqua;
+    grid-template-columns: 1fr 100px;
+    margin: 8px 16px;
 }
 
 .form-group {
@@ -101,10 +85,6 @@ header h1 {
     /* width: 100%; */
 }
 
-/* .fetchbook-search {
-    width: 500;
-} */
-
 input[type=text] {
     /* width: 100%; */
     background-color: white;
@@ -114,13 +94,12 @@ input[type=text] {
     padding-left: 40px;
   }
 
-  /* SS - my formating for form section on splash page */
 
 .search-input, .search-button {
     margin: 8px 0px;
     padding: 8px 15px;
     border: 1px solid;
-} 
+}  
 
 .search-input {
     width: 200px;
@@ -132,7 +111,7 @@ input[type=text] {
     color: var(--text-color);
 }
 
-.hr {
+.search-group-hr {
     padding: 1.5rem;
 }
 
@@ -153,14 +132,12 @@ input[type=text] {
 }
 
 main{
-    padding: 1.5rem
+    margin: 1.5rem;
 }
 
 #nytSection { 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 footer {

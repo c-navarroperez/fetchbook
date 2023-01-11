@@ -13,19 +13,6 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
         <title>Fetchbook</title>
     </head>
-
-
-    <!-- <body>
-        <div>
-            <input type="text" name="" placeholder="Text Here" id="searchInput" />
-            <button id="searchBtn">Submit</button>
-        </div>
-        <div id="nytSection">NYT best sellers</div>
-        <main></main>
-        <script src="script/script.js"></script>
-    </body> -->
-
-
     
     <body>
         <header>
@@ -34,29 +21,30 @@
         </header>
 
         <div class="wrapper">
-            <aside class="search">
-                <!-- <form class="search-form">
-                        <input class="search-input" type="text" placeholder="Title, Author, Subject…"/>
-                        <button type="submit" class="search-button" id="search-button">
-                            Search
-                        </button>
-                </form> -->
-
+            <aside class="search-group">
                 <form id="fetchbook-search-form" class="search-form">
-                    <!-- <h2 id="fetchbook-search-title">Fetchbook search engine</h2> -->
-                    <div class="form-inline form-group">
-                        <div class="input-group form-control-lg">
-                            <input class="form-input form-control-lg fetchbook-search" type="text" id="fetchbook-search-input" placeholder="Enter Title/Author/Subject/ISBN" aria-labelledby="form-heading" aria-controls="fetchbook search"/>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary search-button" id="fetchbook-search-button" aria-label="submit search">
+                    <!-- <div class="form-inline form-group">
+                        <div class="input-group form-control-lg"> -->
+                            <input 
+                            class="search-input form-control-sm fetchbook-search" 
+                            type="text" 
+                            id="fetchbook-search-input" 
+                            placeholder="Title, Author, Subject, ISBN..." 
+                            aria-labelledby="form-heading" 
+                            aria-controls="fetchbook search"/>
+                        <!-- </div>
+                    </div> -->
+                    <button 
+                    type="search-button" 
+                    class="btn btn-primary search-button" 
+                    id="fetchbook-search-button" 
+                    aria-label="submit search">
                         Search
                     </button>
-                    <!-- <hr class="hr fetchbook-search-hr" /> -->
                 </form>
 
-                <div class="hr">
-                    <hr class="hr"/>
+                <div class="search-group-hr">
+                    <hr/>
                 </div>
 
                 <div class="search-list">
