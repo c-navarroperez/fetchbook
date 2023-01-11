@@ -1,8 +1,14 @@
 //addEventListeners
 const search = document.querySelector("#fetchbook-search-input");
 const searchBtn = document.querySelector("#fetchbook-search-button");
+const nytCatSelectDrop = $("#nytCatSelectDropD");
+const nytCatSelectDropD = $("#nytCatSelectDropD a");
+const nytCatSelectDropDMItems = document.querySelector("#nytCatSelectDropD");
 const main = document.querySelector("main");
 const nytSection = document.querySelector("#nytSection");
+const nytCatSelect = document.querySelector("#nytCatSelect")
+
+//Api Keys
 const nytAPIKey = "JGBNorym4yKMbGSVrRthJlg207eHEfsV";
 const booksRunKey = "durnemjx4rdbc0m7r6ma";
 
@@ -67,6 +73,7 @@ function bookSearch(title) {
         throw new Error("No results found, please try searching again");
       }
       let dataArray = data.items.slice();
+      // Sent list of books returned in array format to parseBooks func to process and add html + data to webpage
       parseBooks(dataArray);
     })
     .catch((err) => {
@@ -75,6 +82,32 @@ function bookSearch(title) {
         `<div class="bookCard item"><h3>${err}</h3>`
       );
       console.log(err);
+    });
+}
+
+//bestSellers function, utilises NYTimes best seller api to fetch data on page load(not yet)
+function bestSellersCatLists() {
+  fetch(
+    `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${nytAPIKey}`
+  )
+    .then((res) => res.json())
+    .then((data) => data.results.lists)
+    .then((list) => {
+      list.forEach((li) => {
+        let title = li.list_name;
+        // let author = li.books[0].author;
+        // let image = li.books[0].book_image;
+        // let description = li.books[0].description;
+        // if (description === "") {
+        //   description = "N/A";
+        // }
+        // let amazonLink = li.books[0].amazon_product_url;
+        // console.log(`bestSellersCatLists Func - ${title}`)
+        nytCatSelectDropDMItems.insertAdjacentHTML(
+          "beforeend",
+          `<a class="dropdown-item" href="#">${title}</a>`
+        );
+      });
     });
 }
 
@@ -133,8 +166,24 @@ searchBtn.addEventListener("click", function (e) {
   bookSearch(input);
 });
 
+$('.dropdown-menu').on('click', 'a', function(){
+  //Grab user selection from the list
+  var selText = $(this).text();
+
+  console.log(selText);
+  $(this).parents('.dropdown').find('.dropdown-toggle').html(selText);
+
+  //bestSellers called on page load to load/fetch NYT section
+  // bestSellers();
+
+});
+
+
+bestSellersCatLists()
+
+//
 //bestSellers called on page load to load/fetch NYT section
-bestSellers();
+// bestSellers();
 
 //short summary on code
 //On page load, bestSellers function is called which fetches nyt API and creates HTML elements from them. Then once a book is searched for the bookSearch function is called. The search data is then used to fetch API data which is then passed into the parseBooks function. This then for loops (for limit set to 10) through information and and inserts HTML from it.
