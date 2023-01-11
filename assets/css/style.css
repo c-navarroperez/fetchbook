@@ -72,6 +72,7 @@ aside {
 /* SS - my formating for form section on splash page */
 
 /* SS - need to re-add appropriate selector
+
     /* display:grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 5fr 1fr;
@@ -153,6 +154,14 @@ input[type=text] {
 .search-list p:nth-child(2){
     border-top: 1px solid grey;
 }
+
+.righth-info-group {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+}
+
 
 footer {
     padding: 8px;

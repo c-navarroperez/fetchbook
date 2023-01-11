@@ -1,8 +1,12 @@
 //addEventListeners
 const search = document.querySelector("#fetchbook-search-input");
 const searchBtn = document.querySelector("#fetchbook-search-button");
+const nytCatSelectDropDMenu = $("#nytCatSelectDropDMenu");
+const nytBookListSection = $("section");
 const main = document.querySelector("main");
 const nytSection = document.querySelector("#nytSection");
+
+//Api Keys
 const nytAPIKey = "JGBNorym4yKMbGSVrRthJlg207eHEfsV";
 const booksRunKey = "durnemjx4rdbc0m7r6ma";
 
@@ -67,6 +71,7 @@ function bookSearch(title) {
         throw new Error("No results found, please try searching again");
       }
       let dataArray = data.items.slice();
+      // Sent list of books returned in array format to parseBooks func to process and add html + data to webpage
       parseBooks(dataArray);
     })
     .catch((err) => {
@@ -78,8 +83,8 @@ function bookSearch(title) {
     });
 }
 
-//bestSellers function, utilises NYTimes best seller api to fetch data on page load(not yet)
-function bestSellers() {
+//bestSellers category list function, utilises NYTimes best seller api to fetch data on page load(not yet)
+function bestSellersCatLists() {
   fetch(
     `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${nytAPIKey}`
   )
@@ -87,54 +92,140 @@ function bestSellers() {
     .then((data) => data.results.lists)
     .then((list) => {
       list.forEach((li) => {
-        let title = li.books[0].title;
-        let author = li.books[0].author;
-        let image = li.books[0].book_image;
-        let description = li.books[0].description;
-        if (description === "") {
-          description = "N/A";
-        }
-        let amazonLink = li.books[0].amazon_product_url;
-        nytSection.insertAdjacentHTML(
-          "beforeend",
-          `<div class="card" style="width: 18rem">
-          <img
-            src="${image}"
-            class="card-img-top"
-            alt="Book image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">${toCorrectCase(title)}</h5>
-            <p class="card-text">${description}</p>
-            <a href="${amazonLink}" class="btn btn-primary">Where to purchase</a>
-          </div>
-        </div>`
+        // Grab the book list category name
+        let listName = li.list_name;
+
+        // Add the book list category names to the drop down menu item area
+        nytCatSelectDropDMenu.append(
+          `<a class="dropdown-item" href="#">${listName}</a>`
         );
       });
     });
 }
 
-//searchInput addEventListener
-search.addEventListener("keydown", function (e) {
-  if (e.key !== "Enter" || search.value === "") {
-    return;
-  }
-  e.preventDefault();
-  let input = search.value;
-  bookSearch(input);
-});
-//searchBtn addEventListener
-searchBtn.addEventListener("click", function (e) {
-  if (searchInput.value === "") {
-    return;
-  }
-  e.preventDefault();
-  let input = searchInput.value;
-  bookSearch(input);
-});
+//bestSellers function, utilises NYTimes best seller api to fetch data on page load(not yet)
+// function bestSellers() {
+//   fetch(
+//     `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${nytAPIKey}`
+//   )
+//     .then((res) => res.json())
+//     .then((data) => data.results.lists)
+//     .then((list) => {
+//       list.forEach((li) => {
+//         let title = li.books[0].title;
+//         let author = li.books[0].author;
+//         let image = li.books[0].book_image;
+//         let description = li.books[0].description;
+//         if (description === "") {
+//           description = "N/A";
+//         }
+//         let amazonLink = li.books[0].amazon_product_url;
+//         nytSection.insertAdjacentHTML(
+//           "beforeend",
+//           `<div class="card" style="width: 18rem">
+//           <img
+//             src="${image}"
+//             class="card-img-top"
+//             alt="Book image"
+//           />
+//           <div class="card-body">
+//             <h5 class="card-title">${toCorrectCase(title)}</h5>
+//             <p class="card-text">${description}</p>
+//             <a href="${amazonLink}" class="btn btn-primary">Where to purchase</a>
+//           </div>
+//         </div>`
+//         );
+//       });
+//     });
+// }
 
-//bestSellers called on page load to load/fetch NYT section
-bestSellers();
+//bestSellers function, utilises NYTimes best seller api to fetch data on page load(not yet)
+function bestSellers(cat) {
+  fetch(
+    `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${nytAPIKey}`
+  )
+    .then((res) => res.json())
+    .then((data) => data.results.lists)
+    .then((list) => {
+      //Clear book list cards to display new ones
+      $('section div').remove();
+    
+      // For each item (li) in the list process them 
+      list.forEach((li) => {
+        // Capture the book list category name e.g. Young Adult Paperback Monthly 
+        let catListName = li.list_name;
+        // If current items list_name matches user selected category (cat), then print out the book details in cards
+        if (catListName === cat) {
+          li.books.forEach((book => {
+            let title = book.title;
+            let author = book.author;
+            let image = book.book_image;
+            let description = book.description;
+            if (description === "") {
+              description = "N/A";
+            }
+            let amazonLink = book.amazon_product_url;
+            // Add cards inside of section with 'nytBookList' id
+            nytBookListSection.append(
+                `<div class="card" id= "#nytBookListCard" style="width: 18rem">
+                  <img
+                    src="${image}"
+                    class="card-img-top"
+                    alt="Book image"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">${toCorrectCase(title)}</h5>
+                    <p class="card-text">${description}</p>
+                    <a href="${amazonLink}" class="btn btn-primary">Where to purchase</a>
+                  </div>
+                </div>`
+            );
+          })) 
+        }
+      });
+    });
+}
+
+function Init() {
+
+  //bestSellersCatLists called on page load to fetch via NYT's api, the best selling books categories to populated the drop down menu
+  bestSellersCatLists()
+
+  //searchInput addEventListener
+  search.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || search.value === "") {
+      return;
+    }
+    e.preventDefault();
+    let input = search.value;
+    bookSearch(input);
+  });
+
+  //searchBtn addEventListener
+  searchBtn.addEventListener("click", function (e) {
+    if (searchInput.value === "") {
+      return;
+    }
+    e.preventDefault();
+    let input = searchInput.value;
+    bookSearch(input);
+  });
+
+  // Dropdown event listner for dynamic additions to the drop down menu items (a tags's)
+  nytCatSelectDropDMenu.on('click', 'a', function(){
+    //Grab user selection from the list
+    var selText = $(this).text();
+
+    //Update the dropdown text to reflect the users selection
+    $(this).parents('.dropdown').find('.dropdown-toggle').html(selText);
+
+    //bestSellers called, passing users category selection value and display top book details
+    bestSellers(selText);
+  });
+
+}
+
+Init()
 
 //short summary on code
 //On page load, bestSellers function is called which fetches nyt API and creates HTML elements from them. Then once a book is searched for the bookSearch function is called. The search data is then used to fetch API data which is then passed into the parseBooks function. This then for loops (for limit set to 10) through information and and inserts HTML from it.
