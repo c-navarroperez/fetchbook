@@ -14,17 +14,14 @@
 
 html, body {
     height: 100%;
+    width: 100%;
 }
 
 body {
     font-family: sans-serif;
-    margin:0% ;
 }
 
 /* GLOBAL CLASSES*/
-.row {
-    display: flex;
-}
 .text-center {
     text-align: center!important;
 }
@@ -51,11 +48,12 @@ header h1 {
     width:200px;
 }
 
-.container {
-    height: 100%;
+.wrapper {
+    display: flex;
+
 }
 
-aside {
+.search {
     justify-self: left;
     width: 350px;
     margin-right: 20px; 
@@ -77,7 +75,7 @@ aside {
     grid-template-rows: 1fr 5fr 1fr;
 } */
 
-form {
+.search-form {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50px 50px 50px;
@@ -100,7 +98,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
 }
 
 /* .fetchbook-search {
@@ -108,7 +106,7 @@ form {
 } */
 
 input[type=text] {
-    width: 100%;
+    /* width: 100%; */
     background-color: white;
     background-image: url('searchicon.png');
     background-position: 10px 10px;
@@ -152,6 +150,17 @@ input[type=text] {
 
 .search-list p:nth-child(2){
     border-top: 1px solid grey;
+}
+
+main{
+    padding: 1.5rem
+}
+
+#nytSection { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
 }
 
 footer {
