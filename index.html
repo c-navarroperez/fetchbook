@@ -80,15 +80,18 @@
             </aside>
             <article class="righth-info-group">
         
-                <h2 id="nytSection">Top 10 New York Times Best Seller Lists</h2>
+                <h2 id="nytSection">New York Times Best Seller Lists</h2>
 
                 <!-- Drop down to allow user to select which top 10 list they want to see, the first entry returned from the NYT api will be the default view-->
                 <div class="dropdown" id="nytCatSelect">
                   <button class="btn btn-secondary dropdown-toggle" id="nytCatSelectBtn" type="button" data-toggle="dropdown" aria-expanded="false">Category Selection</button>
-                  <div class="dropdown-menu" id=nytCatSelectDropD>
+                  <div class="dropdown-menu" id=nytCatSelectDropDMenu>
                     <!-- <a class="dropdown-item" href="#">blah</a> -->
                   </div>
                 </div>
+                
+                <section id="nytBookList">
+                </section>
                     <!-- <div class="card" style="width: 18rem">
                     <img
                         src="https://api.lorem.space/image/movie?w=150&h=220"
