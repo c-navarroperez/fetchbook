@@ -141,7 +141,8 @@ main{
 }
 
 footer {
-    padding: 8px;
+    align-items: center;
+    padding-top: 16px;
     background: var(--primary-color);
     color: var(--text-color);
 }
