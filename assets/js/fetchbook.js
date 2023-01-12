@@ -214,3 +214,29 @@ Init();
 
 //short summary on code
 //On page load, bestSellers function is called which fetches nyt API and creates HTML elements from them. Then once a book is searched for the bookSearch function is called. The search data is then used to fetch API data which is then passed into the parseBooks function. This then for loops (for limit set to 10) through information and and inserts HTML from it.
+// create an empty javascript array for the user entries.
+
+var recentSearches = [];
+
+//this function is called using the search button "onclick"
+
+function searchFunction(data) {
+  recentSearches.push($("#fetchbook-search-input").val()); //This line puts the value from the text box in an array
+
+  $("#fetchbook-search-input").val(""); // clear the text box after search
+  $(".search-list").text(""); // clear the search history window then repopulate with the new array
+
+  $.each(recentSearches, function (index, value) {
+    $(".search-list").append(
+      "<li class='historyItem' onclick='addtotextbox(" +
+        index +
+        ")'>" +
+        value +
+        "</li>"
+    );
+  });
+}
+
+function addtotextbox(id) {
+  $("#fetchbook-search-input").val(recentSearches[id]);
+}
