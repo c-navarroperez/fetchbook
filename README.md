@@ -22,25 +22,29 @@ SO THAT I can find the specified book and their relevant information
 
 <br />
 
+<div align="center">
+  <img src="assets\images\Fetchbook-scrShot-nyt.png" alt="The screenshot displays the fetchbook website. In the website, five book cards can be seen from the New York Times best sellers Hardcover Fiction category." >
+</div>
+
+<br />
+
 - When a user searches for a book using the search bar, they will be presented with:
   - Book/books relevant to the users search.
   - The book/books will be displayed in seperate cards featuring title, image, description and an Amazon link. 
   - Clicking on the Amazon button, the user will be redirected to the Amazon website.
   - The description will be a modal that is opened upon clicking the "Click for description".
-
-<br />
-
-- If a user searches for a book that doesnt find a result an error message will be displayed.
-
-- A search history section should be on display on the left hand side under the search bar, each previous search can also be clicked to load its relevant book data again.
-
-- The search history will be sorted top to bottom in most recent search order and is limited to 10 searches.
+   A search history section should be on display on the left hand side under the search bar, each previous search can also be clicked to load its relevant book data again.
+  - The search history will be sorted top to bottom in most recent search order and is limited to 10 searches.
 
 <br />
 
 <div align="center">
   <img src="assets\images\Fetchbook-scrShot.png" alt="The screenshot displays the fetchbook website. Also in the screenshot multiple book cards can be seen, and the previous search history is displayed in the aside." >
 </div>
+
+<br />
+
+- If a user searches for a book that doesnt find a result an error message will be displayed.
 
 <br />
 
