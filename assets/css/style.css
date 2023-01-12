@@ -21,7 +21,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px auto 30px;
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 /* GLOBAL CLASSES*/
@@ -38,31 +38,30 @@ header {
   display: flex;
   justify-content: flex-start;
   align-content: center;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 1px 0;
-    margin: 0%;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1px 0;
+  margin: 0%;
 }
 
 .logo {
   width: 200px;
 }
 
-
 .wrapper {
-    display: flex;
+  display: flex;
 }
 
-.search-group{
-    justify-self: left;
-    display: grid;
+.search-group {
+  justify-self: left;
+  display: grid;
 
-    /* SS need extra param as there are 4 items (prev was only 3) */
-    grid-template-rows: 75px 1rem 75px auto;
+  /* SS need extra param as there are 4 items (prev was only 3) */
+  grid-template-rows: 75px 1rem 75px auto;
 
-    margin-right: 20px; 
-    padding: 16px 0px;
-    border-right: 1px solid grey;
+  margin-right: 20px;
+  padding: 16px 0px;
+  border-right: 1px solid grey;
 }
 
 .search-form {
@@ -76,12 +75,12 @@ header {
 }
 
 .search-form {
-    display: flex;
-    justify-content : center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 100px;
-    margin: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  margin: 8px 16px;
 }
 
 #fetchbook-search-title {
@@ -98,23 +97,23 @@ header {
   width: 100%;
 }
 
-.search-input, 
+.search-input,
 .search-button {
-    margin: 8px 0px;
-    padding: 8px 15px;
-    border: 1px solid;
-    font-size: 0.75rem;
-} 
+  margin: 8px 0px;
+  padding: 8px 15px;
+  border: 1px solid;
+  font-size: 0.75rem;
+}
 
 .search-input {
   width: 200px;
 }
 
-input[type=text] {
-    background-color: white;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding-left: 10px;
+input[type="text"] {
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 10px;
 }
 
 .search-button {
@@ -124,15 +123,15 @@ input[type=text] {
 }
 
 .search-group-hr {
-    padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
-hr { 
-    margin: 0;
+hr {
+  margin: 0;
 }
 
 .search-list {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .search-list > *:not(h3) {
@@ -143,8 +142,8 @@ hr {
 }
 
 .search-list h3 {
-    font-size: 18px;
-    color: darkslategrey;
+  font-size: 18px;
+  color: darkslategrey;
 }
 
 .righth-info-group {
@@ -154,26 +153,26 @@ hr {
   gap: 5px;
 }
 
-main{
-    display: grid;
-    margin: 1.5rem 1.5rem 1.5rem 0px;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 100px auto;
+main {
+  display: grid;
+  margin: 1.5rem 1.5rem 1.5rem 0px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 100px auto;
 }
 
-#searchResCards{
+#searchResCards {
   display: flex;
   flex-wrap: wrap;
   margin: 1.5rem 1.5rem 1.5rem 0px;
   gap: 10px;
 }
 
-#nytSection { 
+#nytSection {
   grid-column: 1/2;
   padding-right: 10px;
 }
 
-#nytCatSelect{
+#nytCatSelect {
   grid-column: 2/3;
 }
 
@@ -185,14 +184,54 @@ main{
 }
 
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 16px;
-    background: var(--primary-color);
-    color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 16px;
+  background: var(--primary-color);
+  color: var(--text-color);
 }
 
 footer p {
   padding-right: 10px;
+}
+
+@media (max-width: 1000px) {
+  #contentSection {
+    flex-direction: column;
+  }
+  .heading {
+    text-align: center;
+  }
+  .input-group {
+    width: auto;
+  }
+  .search-form {
+    display: flex;
+    justify-content: center;
+  }
+  #nytBookList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 30px;
+  }
+  .search-list p {
+    margin-top: 0;
+    margin-bottom: 0.1rem;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px grey;
+    width: fit-content;
+    padding: 20px;
+  }
+
+  #searchResCards {
+    justify-content: space-evenly;
+  }
 }
