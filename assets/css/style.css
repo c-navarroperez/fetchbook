@@ -69,6 +69,11 @@ aside {
     margin: 8px 0px;
 }
 
+.search-list li {
+    list-style-type: none;
+}
+
+
 /* SS - my formating for form section on splash page */
 
 /* SS - need to re-add appropriate selector
