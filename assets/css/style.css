@@ -71,9 +71,8 @@ aside {
 }
 
 .search-list li {
-    list-style-type: none;
+  list-style-type: none;
 }
-
 
 /* SS - my formating for form section on splash page */
 
@@ -156,10 +155,6 @@ input[type="text"] {
 .search-list h3 {
   font-weight: 125;
   color: darkslategrey;
-}
-
-.search-list p:nth-child(2) {
-  border-top: 1px solid grey;
 }
 
 .righth-info-group {

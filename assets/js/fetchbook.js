@@ -5,8 +5,8 @@ const nytCatSelectDropDMenu = $("#nytCatSelectDropDMenu");
 const nytBookListSection = $("section");
 const main = document.querySelector("main");
 const nytSection = document.querySelector("#nytSection");
-// const descriptionClick = document.querySelectorAll(".descriptionClick");
 const cardBody = document.querySelectorAll(".card-body");
+const searchList = document.querySelector(".search-list");
 
 //Api Keys
 const nytAPIKey = "JGBNorym4yKMbGSVrRthJlg207eHEfsV";
@@ -62,6 +62,7 @@ function parseBooks(arr) {
             </div>
             <div class="modal-body">
               <p>Author: ${author}</p>
+              <p>Publish date: ${publishDate} </p>
               ${description}
               <p class="pt-3">ISBN: ${isbn}</p>
             </div>
@@ -93,6 +94,8 @@ function bookSearch(userInput) {
 
         throw new Error("No results found, please try searching again");
       }
+      searchFunction(userInput);
+      loadHistory();
       let dataArray = data.items.slice();
       // Sent list of books returned in array format to parseBooks func to process and add html + data to webpage
       parseBooks(dataArray);
@@ -163,7 +166,7 @@ function bestSellers(cat) {
                   <div class="card-body">
                     <h5 class="card-title">${toCorrectCase(title)}</h5>
                     <p class="card-text">${description}</p>
-                    <a href="${amazonLink}" class="btn btn-primary">Where to purchase</a>
+                    <a href="${amazonLink}" class="btn btn-primary" target="_blank">Where to purchase</a>
                   </div>
                 </div>`
             );
@@ -176,6 +179,7 @@ function bestSellers(cat) {
 function Init() {
   //bestSellersCatLists called on page load to fetch via NYT's api, the best selling books categories to populated the drop down menu
   bestSellersCatLists();
+  loadHistory();
 
   //searchInput addEventListener
   search.addEventListener("keydown", function (e) {
@@ -189,12 +193,19 @@ function Init() {
 
   //searchBtn addEventListener
   searchBtn.addEventListener("click", function (e) {
-    if (searchInput.value === "") {
+    if (search.value === "") {
       return;
     }
     e.preventDefault();
-    let input = searchInput.value;
+    let input = search.value;
     bookSearch(input);
+  });
+  searchList.addEventListener("click", function (e) {
+    if (e.target.localName === "p") {
+      bookSearch(e.target.innerHTML);
+    } else {
+      return;
+    }
   });
 
   // Dropdown event listner for dynamic additions to the drop down menu items (a tags's)
@@ -214,29 +225,39 @@ Init();
 
 //short summary on code
 //On page load, bestSellers function is called which fetches nyt API and creates HTML elements from them. Then once a book is searched for the bookSearch function is called. The search data is then used to fetch API data which is then passed into the parseBooks function. This then for loops (for limit set to 10) through information and and inserts HTML from it.
-// create an empty javascript array for the user entries.
 
-var recentSearches = [];
-
-//this function is called using the search button "onclick"
-
+// searchFunction function. Takes user search and adds to local storage.
 function searchFunction(data) {
-  recentSearches.push($("#fetchbook-search-input").val()); //This line puts the value from the text box in an array
-
-  $("#fetchbook-search-input").val(""); // clear the text box after search
-  $(".search-list").text(""); // clear the search history window then repopulate with the new array
-
-  $.each(recentSearches, function (index, value) {
-    $(".search-list").append(
-      "<li class='historyItem' onclick='addtotextbox(" +
-        index +
-        ")'>" +
-        value +
-        "</li>"
-    );
-  });
+  let userData = toCorrectCase(data);
+  if (localStorage.getItem("searchHistory") !== null) {
+    let allSearches = [...JSON.parse(localStorage.getItem("searchHistory"))];
+    if (allSearches.includes(userData)) {
+      let index = allSearches.indexOf(userData);
+      allSearches.unshift(allSearches.splice(index, 1)[0]);
+      localStorage.setItem("searchHistory", JSON.stringify(allSearches));
+      return;
+    } else {
+      if (allSearches.length > 9) {
+        allSearches.pop();
+      }
+      allSearches.unshift(userData);
+      localStorage.setItem("searchHistory", JSON.stringify(allSearches));
+    }
+  } else {
+    let allSearches = [userData];
+    localStorage.setItem("searchHistory", JSON.stringify(allSearches));
+  }
 }
 
-function addtotextbox(id) {
-  $("#fetchbook-search-input").val(recentSearches[id]);
+// loadHistory function. Called to update searcList HTML from localStorage data
+function loadHistory() {
+  searchList.innerHTML = "";
+  if (localStorage.getItem("searchHistory") === null) {
+    return;
+  } else {
+    let searchHistory = [...JSON.parse(localStorage.getItem("searchHistory"))];
+    searchHistory.forEach((history) =>
+      searchList.insertAdjacentHTML("beforeend", `<p>${history}</p>`)
+    );
+  }
 }
