@@ -18,6 +18,9 @@ body {
 }
 
 body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px auto 30px;
     font-family: sans-serif;
 }
 
@@ -27,11 +30,14 @@ body {
 }
 
 .heading {
-  margin: 8px 8px;
+  margin: 2px 2px;
 }
 
 /* CUSTOM STYLES*/
 header {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: 1px 0;
@@ -84,27 +90,12 @@ header {
   background-color: aqua;
 }
 
-/* .form-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .input-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-input[type="text"] {
-  width: 100%;
-  background-color: white;
-  background-image: url("searchicon.png");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding-left: 40px;
 }
 
 .search-input, 
@@ -121,7 +112,6 @@ input[type="text"] {
 
 input[type=text] {
     background-color: white;
-    background-image: url('searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 10px;
@@ -195,8 +185,14 @@ main{
 }
 
 footer {
+    display: flex;
     align-items: center;
+    justify-content: flex-end;
     padding-top: 16px;
     background: var(--primary-color);
     color: var(--text-color);
+}
+
+footer p {
+  padding-right: 10px;
 }
