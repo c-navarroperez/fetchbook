@@ -182,6 +182,19 @@ main {
   flex-wrap: wrap;
   gap: 10px;
 }
+#nytBookListCard {
+  height: 750px;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-body a {
+  display: flex;
+  justify-content: center;
+}
 
 footer {
   display: flex;
