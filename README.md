@@ -44,6 +44,11 @@ SO THAT I can find the specified book and their relevant information
 
 <br />
 
+## Website Link
+
+* https://c-navarroperez.github.io/fetchbook/
+
+
 ## Feedback
 
 - Please [file an issue](https://github.com/c-navarroperez/fetchbook/issues).
@@ -56,7 +61,3 @@ SO THAT I can find the specified book and their relevant information
 
 Licensed under the [MIT](LICENSE) license.
 
-
-## Website Link
-
-* https://c-navarroperez.github.io/fetchbook/
