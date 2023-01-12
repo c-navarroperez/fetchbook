@@ -210,6 +210,13 @@ footer p {
     display: flex;
     justify-content: center;
   }
+
+  #nytSection {
+    font-size: 25px;
+  }
+  #nytCatSelect {
+    text-align: center;
+  }
   #nytBookList {
     display: flex;
     justify-content: space-evenly;
@@ -233,5 +240,18 @@ footer p {
 
   #searchResCards {
     justify-content: space-evenly;
+  }
+}
+@media (max-width: 680px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  #nytSection {
+    text-align: center;
+  }
+  #searchResCards {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
