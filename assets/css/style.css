@@ -18,14 +18,10 @@ body {
 }
 
 body {
-  font-family: sans-serif;
-  margin: 0%;
+    font-family: sans-serif;
 }
 
 /* GLOBAL CLASSES*/
-.row {
-  display: flex;
-}
 .text-center {
   text-align: center !important;
 }
@@ -36,32 +32,28 @@ body {
 
 /* CUSTOM STYLES*/
 header {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  padding: 1px 0;
-  margin: 0%;
-}
-
-header h1 {
-  padding: 16px;
-  font-size: 48px;
-  font-weight: 650;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 1px 0;
+    margin: 0%;
 }
 
 .logo {
   width: 200px;
 }
 
-.container {
-  height: 100%;
+
+.wrapper {
+    display: flex;
 }
 
-aside {
-  justify-self: left;
-  width: 350px;
-  margin-right: 20px;
-  padding: 16px 0px;
-  border-right: 1px solid grey;
+.search-group{
+    justify-self: left;
+    display: grid;
+    grid-template-rows: 75px 1rem auto;
+    margin-right: 20px; 
+    padding: 16px 0px;
+    border-right: 1px solid grey;
 }
 
 .search-form {
@@ -74,19 +66,13 @@ aside {
   list-style-type: none;
 }
 
-/* SS - my formating for form section on splash page */
-
-/* SS - need to re-add appropriate selector
-
-    /* display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
-} */
-
-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 50px 50px;
+.search-form {
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    margin: 8px 16px;
 }
 
 #fetchbook-search-title {
@@ -95,11 +81,11 @@ form {
   background-color: aqua;
 }
 
-.form-group {
+/* .form-group {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .input-group {
   display: flex;
@@ -108,10 +94,6 @@ form {
   align-items: center;
   width: 100%;
 }
-
-/* .fetchbook-search {
-    width: 500;
-} */
 
 input[type="text"] {
   width: 100%;
@@ -122,17 +104,24 @@ input[type="text"] {
   padding-left: 40px;
 }
 
-/* SS - my formating for form section on splash page */
-
-.search-input,
+.search-input, 
 .search-button {
-  margin: 8px 0px;
-  padding: 8px 15px;
-  border: 1px solid;
-}
+    margin: 8px 0px;
+    padding: 8px 15px;
+    border: 1px solid;
+    font-size: 0.75rem;
+} 
 
 .search-input {
   width: 200px;
+}
+
+input[type=text] {
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 10px;
 }
 
 .search-button {
@@ -141,8 +130,16 @@ input[type="text"] {
   color: var(--text-color);
 }
 
-.hr {
-  padding: 1.5rem;
+.search-group-hr {
+    padding: 0.5rem 1.5rem;
+}
+
+hr { 
+    margin: 0;
+}
+
+.search-list {
+    margin-top: 0.5rem;
 }
 
 .search-list > *:not(h3) {
@@ -153,8 +150,8 @@ input[type="text"] {
 }
 
 .search-list h3 {
-  font-weight: 125;
-  color: darkslategrey;
+    font-size: 18px;
+    color: darkslategrey;
 }
 
 .righth-info-group {
@@ -164,8 +161,18 @@ input[type="text"] {
   gap: 5px;
 }
 
+main{
+    margin: 1.5rem 1.5rem 1.5rem 0px;
+}
+
+#nytSection { 
+    display: flex;
+    flex-wrap: wrap;
+}
+
 footer {
-  padding: 8px;
-  background: var(--primary-color);
-  color: var(--text-color);
+    align-items: center;
+    padding-top: 16px;
+    background: var(--primary-color);
+    color: var(--text-color);
 }
