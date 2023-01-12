@@ -41,10 +41,11 @@ function parseBooks(arr) {
     let description =
       arr[i].volumeInfo.description || "No description available";
     let coverImage = arr[i].volumeInfo?.imageLinks?.thumbnail;
-    let coverImageHTML = `<img src="${coverImage}" class="card-img-top" alt="Book Cover">`;
+    let coverImageHTML = `<img src="${coverImage}" class="card-img-top" alt="Book Cover" style="height:400px">`;
     if (coverImage === undefined) {
       coverImageHTML = "<p>No image available</p>";
     }
+    main.setAttribute('id','searchResCards');
     main.insertAdjacentHTML(
       "beforeend",
       `<div class="card" style="width: 18rem">
@@ -162,6 +163,7 @@ function bestSellers(cat) {
                     src="${image}"
                     class="card-img-top"
                     alt="Book image"
+                    style="height:400px"
                   />
                   <div class="card-body">
                     <h5 class="card-title">${toCorrectCase(title)}</h5>

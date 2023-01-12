@@ -50,7 +50,10 @@ header {
 .search-group{
     justify-self: left;
     display: grid;
-    grid-template-rows: 75px 1rem auto;
+
+    /* SS need extra param as there are 4 items (prev was only 3) */
+    grid-template-rows: 75px 1rem 75px auto;
+
     margin-right: 20px; 
     padding: 16px 0px;
     border-right: 1px solid grey;
@@ -162,12 +165,33 @@ hr {
 }
 
 main{
+    display: grid;
     margin: 1.5rem 1.5rem 1.5rem 0px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 100px auto;
+}
+
+#searchResCards{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem 1.5rem 1.5rem 0px;
+  gap: 10px;
 }
 
 #nytSection { 
-    display: flex;
-    flex-wrap: wrap;
+  grid-column: 1/2;
+  padding-right: 10px;
+}
+
+#nytCatSelect{
+  grid-column: 2/3;
+}
+
+#nytBookList {
+  grid-column: 1/3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 footer {
