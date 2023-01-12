@@ -39,7 +39,7 @@ SO THAT I can find the specified book and their relevant information
 <br />
 
 <div align="center">
-  <img src="assets\images\Fetchbook-scrShot.png" width="1536" height="864" alt="The screenshot displays the fetchbook website. Also in the screenshot multiple book cards can be seen, and the previous search history is displayed in the aside." >
+  <img src="assets\images\Fetchbook-scrShot.png" alt="The screenshot displays the fetchbook website. Also in the screenshot multiple book cards can be seen, and the previous search history is displayed in the aside." >
 </div>
 
 <br />
