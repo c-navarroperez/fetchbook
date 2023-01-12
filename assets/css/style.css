@@ -113,13 +113,6 @@ header {
   width: 200px;
 }
 
-input[type="text"] {
-  background-color: white;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding-left: 10px;
-}
-
 .search-button {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
