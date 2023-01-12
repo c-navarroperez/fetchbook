@@ -185,21 +185,21 @@ function Init() {
 
   //searchInput addEventListener
   search.addEventListener("keydown", function (e) {
-    if (e.key !== "Enter" || search.value === "") {
+    if (e.key !== "Enter" || search.value.trim() === "") {
       return;
     }
     e.preventDefault();
-    let input = search.value;
+    let input = search.value.trim();
     bookSearch(input);
   });
 
   //searchBtn addEventListener
   searchBtn.addEventListener("click", function (e) {
-    if (search.value === "") {
+    if (search.value.trim() === "") {
       return;
     }
     e.preventDefault();
-    let input = search.value;
+    let input = search.value.trim();
     bookSearch(input);
   });
   searchList.addEventListener("click", function (e) {
