@@ -75,7 +75,7 @@ function parseBooks(arr) {
       <button type="button" class="btn modalBtn" data-toggle="modal" data-target="#descriptionModal${i}">
   Click for description
 </button>
-        <a href="#" class="btn btn-primary">Where to purchase</a>
+        <a href="https://www.amazon.com/dp/${isbn}" class="btn btn-primary" target="_blank">Amazon Link</a>
       </div>
     </div>`
     );
@@ -166,7 +166,7 @@ function bestSellers(cat) {
                   <div class="card-body">
                     <h5 class="card-title">${toCorrectCase(title)}</h5>
                     <p class="card-text">${description}</p>
-                    <a href="${amazonLink}" class="btn btn-primary" target="_blank">Where to purchase</a>
+                    <a href="${amazonLink}" class="btn btn-primary" target="_blank">Amazon Link</a>
                   </div>
                 </div>`
             );
