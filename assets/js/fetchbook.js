@@ -45,7 +45,7 @@ function parseBooks(arr) {
     if (coverImage === undefined) {
       coverImageHTML = "<p>No image available</p>";
     }
-    main.setAttribute('id','searchResCards');
+    main.setAttribute("id", "searchResCards");
     main.insertAdjacentHTML(
       "beforeend",
       `<div class="card" style="width: 18rem">
@@ -158,7 +158,7 @@ function bestSellers(cat) {
             let amazonLink = book.amazon_product_url;
             // Add cards inside of section with 'nytBookList' id
             nytBookListSection.append(
-              `<div class="card" id= "#nytBookListCard" style="width: 18rem">
+              `<div class="card" id= "nytBookListCard" style="width: 18rem">
                   <img
                     src="${image}"
                     class="card-img-top"
@@ -185,21 +185,21 @@ function Init() {
 
   //searchInput addEventListener
   search.addEventListener("keydown", function (e) {
-    if (e.key !== "Enter" || search.value === "") {
+    if (e.key !== "Enter" || search.value.trim() === "") {
       return;
     }
     e.preventDefault();
-    let input = search.value;
+    let input = search.value.trim();
     bookSearch(input);
   });
 
   //searchBtn addEventListener
   searchBtn.addEventListener("click", function (e) {
-    if (search.value === "") {
+    if (search.value.trim() === "") {
       return;
     }
     e.preventDefault();
-    let input = search.value;
+    let input = search.value.trim();
     bookSearch(input);
   });
   searchList.addEventListener("click", function (e) {
