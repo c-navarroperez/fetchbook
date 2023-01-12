@@ -1,10 +1,8 @@
 # fetchbook
 
-## Short description
+## The Repository
 
-The objective of this project is to create a website that can be used to search for books by using third party apis to retrieve book info. By default the New York Times best sellers will be available to be selected from a drop down, this is so the user can see the best seller books information. After searching for a book certain info will be printed to the UI in a card format. Each time an item is searched for and results are returned the search input will be saved to local storage and displayed in a search history section.
-
-The app will be responsive and work on multiple devices
+The objective of this project is to create a website that can be used to search for books by using third party apis to retrieve book info. 
 
 ### User Story
 
@@ -14,39 +12,56 @@ I WANT to be able to search for books via title, author and ISBN
 SO THAT I can find the specified book and their relevant information
 ```
 
-### Acceptance Criteria
+## Features
 
-The app will work as intended and will have the following features
+- The New York Times section will is available on page load:
+  - Selecting a category from the drop down list, allows the user to see the top 5 NYT best seller books.
+  - Items will be loaded in as cards after selecting a category from the drop down menu.
+  - Each card features title, image, description and an Amazon link.
+  - Clicking on the Amazon button, the user will be redirected to the Amazon website.
 
-- The app will look clear and be easy to use
+<br />
 
-- It will work on multiple device types
+<div align="center">
+  <img src="assets\images\Fetchbook-scrShot-nyt.png" alt="The screenshot displays the fetchbook website. In the website, five book cards can be seen from the New York Times best sellers Hardcover Fiction category." >
+</div>
 
-- The NYT section will be available on page load. It will:
+<br />
 
-  - Items will be loaded in as cards after selecting a category from a drop down menu
-  - Each card will have an image, title, Amazon link, and a description
+- When a user searches for a book using the search bar, they will be presented with:
+  - Book/books relevant to the users search.
+  - The book/books will be displayed in seperate cards featuring title, image, description and an Amazon link. 
+  - Clicking on the Amazon button, the user will be redirected to the Amazon website.
+  - The description will be a modal that is opened upon clicking the "Click for description".
+   A search history section should be on display on the left hand side under the search bar, each previous search can also be clicked to load its relevant book data again.
+  - The search history will be sorted top to bottom in most recent search order and is limited to 10 searches.
 
-- When a user searches for a book they will be presented with:
+<br />
 
-  - Book/books relevant to the users search
-  - The book/books will be displayed in seperate cards
-  - Each card will have an image, title, purchase link and a description. The description will be a modal that is opened upon clicking the "Click for description"
+<div align="center">
+  <img src="assets\images\Fetchbook-scrShot.png" alt="The screenshot displays the fetchbook website. Also in the screenshot multiple book cards can be seen, and the previous search history is displayed in the aside." >
+</div>
 
-- If a user searches for a book that doesnt find a result an error message will be displayed
+<br />
 
-- A search history section should be on display, each previous search can also be clicked to load its relevant book data again
+- If a user searches for a book that doesnt find a result an error message will be displayed.
 
-- The search history will be sorted top to bottom in most recent search order
+<br />
 
-### Screenshot of completed site
+## Website Link
 
-The following image shows the fetchbook websites finished appearance
+* https://c-navarroperez.github.io/fetchbook/
 
-![The screenshot displays the fetchbook website. Also in the screenshot multiple book cards can be seen, and the previous search history is displayed in the aside. ]()
 
-### License
+## Feedback
 
-Please refer to license in the Repo
+- Please [file an issue](https://github.com/c-navarroperez/fetchbook/issues).
 
-# Website Link
+---
+
+## Copyright
+
+© 2023 fetchbook. All Rights Reserved.
+
+Licensed under the [MIT](LICENSE) license.
+
