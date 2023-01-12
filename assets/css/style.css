@@ -30,7 +30,10 @@ body {
 }
 
 .heading {
+  padding-top: 10px;
   margin: 2px 2px;
+  font-size: 1.25rem;
+  color: grey;
 }
 
 /* CUSTOM STYLES*/
@@ -208,6 +211,14 @@ footer p {
   padding-right: 10px;
 }
 
+@media (min-width: 1000px) {
+  .heading {
+    padding-left: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid grey;
+    margin: 0;
+  }
+}
 @media (max-width: 1000px) {
   #contentSection {
     flex-direction: column;
