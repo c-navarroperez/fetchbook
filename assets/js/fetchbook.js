@@ -45,7 +45,7 @@ function parseBooks(arr) {
     if (coverImage === undefined) {
       coverImageHTML = "<p>No image available</p>";
     }
-    main.setAttribute('id','searchResCards');
+    main.setAttribute("id", "searchResCards");
     main.insertAdjacentHTML(
       "beforeend",
       `<div class="card" style="width: 18rem">
@@ -158,7 +158,7 @@ function bestSellers(cat) {
             let amazonLink = book.amazon_product_url;
             // Add cards inside of section with 'nytBookList' id
             nytBookListSection.append(
-              `<div class="card" id= "#nytBookListCard" style="width: 18rem">
+              `<div class="card" id= "nytBookListCard" style="width: 18rem">
                   <img
                     src="${image}"
                     class="card-img-top"
