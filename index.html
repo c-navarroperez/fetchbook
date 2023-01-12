@@ -1,28 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Fetchbook</title>
-</head>
-
-<body>
-  <!-- <body>
-            <div>
-            <input type="text" name="" placeholder="Text Here" id="searchInput" />
-            <button id="searchBtn">Submit</button>
-            </div>
-            <div id="nytSection">NYT best sellers</div>
-            <main></main>
-            <script src="script/script.js"></script>
-        </body> -->
-  <main>
-
+  <body>
     <header>
       <!-- <h1 class="heading">fetchbook</h1> -->
       <img class="logo" src="./assets/images/fetchbook-logo.png" alt="" />
@@ -41,13 +20,22 @@
           <h2 id="fetchbook-search-title">Fetchbook search engine</h2>
           <div class="form-inline form-group">
             <div class="input-group form-control-lg">
-              <input class="form-input form-control-lg fetchbook-search" type="text" id="fetchbook-search-input"
-                placeholder="Enter Title/Author/Subject/ISBN" aria-labelledby="form-heading"
-                aria-controls="fetchbook search" />
+              <input
+                class="form-input form-control-lg fetchbook-search"
+                type="text"
+                id="fetchbook-search-input"
+                placeholder="Enter Title/Author/Subject/ISBN"
+                aria-labelledby="form-heading"
+                aria-controls="fetchbook search"
+              />
             </div>
           </div>
-          <button type="button" class="btn btn-primary search-button" id="fetchbook-search-button"
-            aria-label="submit search">
+          <button
+            type="button"
+            class="btn btn-primary search-button"
+            id="fetchbook-search-button"
+            aria-label="submit search"
+          >
             Search
           </button>
           <hr class="hr fetchbook-search-hr" />
@@ -67,21 +55,27 @@
         </div>
       </aside>
       <article class="righth-info-group">
+        <main>
+          <h2 id="nytSection">New York Times Best Seller Lists</h2>
 
-        <h2 id="nytSection">New York Times Best Seller Lists</h2>
-
-        <!-- Drop down to allow user to select which top 10 list they want to see, the first entry returned from the NYT api will be the default view-->
-        <div class="dropdown" id="nytCatSelect">
-          <button class="btn btn-secondary dropdown-toggle" id="nytCatSelectBtn" type="button" data-toggle="dropdown"
-            aria-expanded="false">Category Selection</button>
-          <div class="dropdown-menu" id=nytCatSelectDropDMenu>
-            <!-- <a class="dropdown-item" href="#">blah</a> -->
+          <!-- Drop down to allow user to select which top 10 list they want to see, the first entry returned from the NYT api will be the default view-->
+          <div class="dropdown" id="nytCatSelect">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              id="nytCatSelectBtn"
+              type="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Category Selection
+            </button>
+            <div class="dropdown-menu" id="nytCatSelectDropDMenu">
+              <!-- <a class="dropdown-item" href="#">blah</a> -->
+            </div>
           </div>
-        </div>
 
-        <section id="nytBookList">
-        </section>
-        <!-- <div class="card" style="width: 18rem">
+          <section id="nytBookList"></section>
+          <!-- <div class="card" style="width: 18rem">
                     <img
                         src="https://api.lorem.space/image/movie?w=150&h=220"
                         class="card-img-top"
@@ -94,55 +88,38 @@
                         </button>
                         <a href="#" class="btn btn-primary">Where to purchase</a>
                     </div>
-            </div> -->
-
-        
-        <!-- Modal start -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Book Description</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                full book description from the API
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </div> -->
+        </main>
+      </article>
+    </div>
 
         <!-- modal end code -->
 
-      </article>
-    </div>
-  </main>
+    <!-- Jquery script-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
 
-  <footer class="text-center">
-    <p>Motley Crew - Copyright 2023</p>
-  </footer>
+    <!-- Bootstrap scripts-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Jquery script-->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-
-  <!-- Bootstrap scripts-->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-    crossorigin="anonymous"></script>
-
-  <!--App script-->
-  <script src="assets/js/fetchbook.js"></script>
-</body>
-
+    <!--App script-->
+    <script src="assets/js/fetchbook.js"></script>
+  </body>
 </html>
