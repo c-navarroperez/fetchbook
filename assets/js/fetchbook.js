@@ -5,6 +5,8 @@ const nytCatSelectDropDMenu = $("#nytCatSelectDropDMenu");
 const nytBookListSection = $("section");
 const main = document.querySelector("main");
 const nytSection = document.querySelector("#nytSection");
+// const descriptionClick = document.querySelectorAll(".descriptionClick");
+const cardBody = document.querySelectorAll(".card-body");
 
 //Api Keys
 const nytAPIKey = "JGBNorym4yKMbGSVrRthJlg207eHEfsV";
@@ -26,7 +28,6 @@ function toCorrectCase(str) {
 function parseBooks(arr) {
   main.innerHTML = "";
   for (let i = 0; i < 10; i++) {
-    console.log(arr[i]);
     let title = arr[i].volumeInfo.title;
     let author = arr[i].volumeInfo.authors?.join(", ") || "Author not found";
     let publishDate =
@@ -50,7 +51,29 @@ function parseBooks(arr) {
       ${coverImageHTML}
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
-        <p class="card-text">${description}</p>
+        <div class="modal fade" id="descriptionModal${i}" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="descriptionModalLabel">${title}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Author: ${author}</p>
+              ${description}
+              <p class="pt-3">ISBN: ${isbn}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn modalBtn" data-toggle="modal" data-target="#descriptionModal${i}">
+  Click for description
+</button>
         <a href="#" class="btn btn-primary">Where to purchase</a>
       </div>
     </div>`
